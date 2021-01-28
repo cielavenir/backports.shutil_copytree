@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name='backports.shutil_chown',
-    description='py.test plugin to make session fixtures behave as if written in conftest, even if it is written in some modules',
+    description='backports shutil chown (mainly for Python2)',
     long_description=open("README.md").read(),
-    version='0.0.0.1',
+    version='0.0.0.2',
     url='https://github.com/cielavenir/backports.shutil_chown',
     license='0BSD',
     author='cielavenir',
