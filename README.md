@@ -1,3 +1,3 @@
 ```
-from shutil_chown import chown
+from backports.shutil_chown import chown
 ```

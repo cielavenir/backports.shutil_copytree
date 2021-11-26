@@ -22,7 +22,7 @@ def backport_chown(path, user=None, group=None):
     if user is None:
         _user = -1
     # user can either be an int (the uid) or a string (the system username)
-    elif isinstance(user, str):
+    elif not isinstance(user, int):
         _user = _get_uid(user)
         if _user is None:
             raise LookupError("no such user: {!r}".format(user))
