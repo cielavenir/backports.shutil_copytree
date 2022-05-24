@@ -1,11 +1,11 @@
 from setuptools import setup
 
 setup(
-    name='backports.shutil_chown',
-    description='backports shutil chown (mainly for Python2)',
+    name='backports.shutil_copytree',
+    description='backports shutil copytree (mainly for Python2)',
     long_description=open("README.md").read(),
-    version='0.0.0.4',
-    url='https://github.com/cielavenir/backports.shutil_chown',
+    version='0.0.0.1',
+    url='https://github.com/cielavenir/backports.shutil_copytree',
     license='PSF',
     author='cielavenir',
     author_email='cielartisan@gmail.com',

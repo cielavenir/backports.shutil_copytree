@@ -1,6 +1,21 @@
+## backports.shutil_copytree
+
+### Usage
+
 ```py
 try:
-    from shutil import chown
+    from inspect import signature
 except ImportError:
-    from backports.shutil_chown import chown
+    try:
+        from funcsigs import signature
+    except ImportError:
+        signature = None
+
+from shutil import copytree
+if 'dirs_exist_ok' not in signature(copytree).parameters:
+    from backports.shutil_copytree import copytree
 ```
+
+### Caveats
+
+- symlink stat is not copied when Python<3.3
