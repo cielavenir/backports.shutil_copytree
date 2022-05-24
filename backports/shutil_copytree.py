@@ -22,7 +22,10 @@ from struct import unpack_from
 from contextlib import closing
 import stat
 
-from pathlib2 import Path
+try:
+    from pathlib import Path
+except ImportError:
+    from pathlib2 import Path
 
 try:
     from os import fspath
@@ -60,7 +63,7 @@ def _copytree(entries, src, dst, symlinks, ignore, copy_function,
                     import winnt
                     with closing(win32file.CreateFile(srcname, win32file.GENERIC_READ, 0, None, win32file.OPEN_EXISTING, win32file.FILE_FLAG_OPEN_REPARSE_POINT | win32file.FILE_FLAG_BACKUP_SEMANTICS, None)) as h:
                         ret = win32file.DeviceIoControl(h, winioctlcon.FSCTL_GET_REPARSE_POINT, None, winnt.MAXIMUM_REPARSE_DATA_BUFFER_SIZE, None)
-                        if unpack_from('<i', ret)[0] & winnt.IO_REPARSE_TAG_MOUNT_POINT:
+                        if unpack_from('<i', ret)[0] == winnt.IO_REPARSE_TAG_MOUNT_POINT:
                             is_symlink = False
             if is_symlink:
                 linkto = readlink(srcname)
