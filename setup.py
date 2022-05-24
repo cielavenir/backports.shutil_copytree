@@ -9,6 +9,7 @@ setup(
     name='backports.shutil_copytree',
     description='backports shutil copytree (mainly for Python2)',
     long_description=open("README.md").read(),
+    long_description_content_type='text/markdown',
     version='0.0.0.1',
     url='https://github.com/cielavenir/backports.shutil_copytree',
     license='PSF',
