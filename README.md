@@ -19,3 +19,4 @@ if 'dirs_exist_ok' not in signature(copytree).parameters:
 ### Caveats
 
 - symlink stat is not copied when Python<3.3
+- directory junctions check on Windows Python<3.8 is done via pywin32, which is less-tested.

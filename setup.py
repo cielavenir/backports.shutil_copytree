@@ -1,5 +1,10 @@
 from setuptools import setup
 
+install_requires = [
+    'pathlib2; python_version < "3"',
+    'pywin32; python_version < "3.8" and platform_system == "Windows"',
+]
+
 setup(
     name='backports.shutil_copytree',
     description='backports shutil copytree (mainly for Python2)',
@@ -13,6 +18,7 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms='any',
+    install_requires=install_requires,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
